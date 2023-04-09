@@ -1,4 +1,9 @@
-from tkinter import *
+from tkinter import Entry
+from tkinter import Canvas
+from tkinter import Tk
+from tkinter import Button
+from tkinter import END
+
 from tkinter import messagebox
 import re
 
@@ -131,10 +136,6 @@ class backend:
             postfix.remove('(')
         while ')' in postfix:
             postfix.remove(')')
-        print(operators_keys)
-        print(nums_vals)
-        print(infix)
-        print(postfix)
         stack.clear()
         for i in postfix:
             if i not in operators:
@@ -145,7 +146,7 @@ class backend:
                 if i == '+':
                     stack.append(str(float(op2)+float(op1)))
                 elif i == '-':
-                    stack.append(str(int(op2)-float(op2)))
+                    stack.append(str(float(op2)-float(op1)))
                 elif i == '/':
                     stack.append(str(float(op2)/float(op1)))
                 elif i == '*':
@@ -153,7 +154,6 @@ class backend:
                 elif i == '^':
                     stack.append(str(float(op2)**float(op1)))
         res = stack[-1]
-
         return res
 
 #-----------------------------------------------F R O N T E N D--------------------------------------------------------#
